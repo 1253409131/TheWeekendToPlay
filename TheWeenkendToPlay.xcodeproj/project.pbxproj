@@ -850,7 +850,7 @@
 					"$(PROJECT_DIR)/TheWeenkendToPlay/Library/libWeiboSDK",
 					"$(PROJECT_DIR)/TheWeenkendToPlay/Library/SDKExport",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = QinJunzhen.TheWeenkendToPlay;
+				PRODUCT_BUNDLE_IDENTIFIER = "QinJunzhen.The-weekend-to-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -870,7 +870,7 @@
 					"$(PROJECT_DIR)/TheWeenkendToPlay/Library/libWeiboSDK",
 					"$(PROJECT_DIR)/TheWeenkendToPlay/Library/SDKExport",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = QinJunzhen.TheWeenkendToPlay;
+				PRODUCT_BUNDLE_IDENTIFIER = "QinJunzhen.The-weekend-to-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

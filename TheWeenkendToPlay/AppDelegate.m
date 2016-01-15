@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "WeiboSDK.h"
-@interface AppDelegate ()<WeiboSDKDelegate>
+#import "MainViewController.h"
+#import "DiscoverViewController.h"
+#import "MineViewController.h"
+
+@interface AppDelegate ()
 
 @end
 

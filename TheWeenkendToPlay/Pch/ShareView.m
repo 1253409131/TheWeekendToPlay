@@ -108,7 +108,7 @@
     
     //remove
     UIButton *removeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    removeBtn.backgroundColor = [UIColor greenColor];
+    removeBtn.backgroundColor = [UIColor yellowColor];
     removeBtn.frame = CGRectMake(30, 170, kWidth - 60, 44);
     [removeBtn setTitle:@"取消" forState:UIControlStateNormal];
     [removeBtn addTarget:self action:@selector(removeBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -151,7 +151,7 @@
     //新浪微博分享
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
     WBAuthorizeRequest *authRequest1 =[WBAuthorizeRequest request];
-    authRequest1.redirectURI = kWeixinAppSecret;
+    authRequest1.redirectURI = kRedirectURI;
     authRequest1.scope = @"all";
     
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest1 access_token:myDelegate.wbtoken];
@@ -162,8 +162,8 @@
     [WeiboSDK sendRequest:request];
     [self.blackView removeFromSuperview];
     [self.shareView removeFromSuperview];
-   
-  
+    
+    
 }
 - (WBMessageObject *)messageToShare{
     WBMessageObject *message = [WBMessageObject message];
@@ -174,7 +174,7 @@
 }
 //- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
 //    GFFLog(@"%@", response);
-//   
+//
 //}
 //
 

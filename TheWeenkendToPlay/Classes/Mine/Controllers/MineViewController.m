@@ -10,6 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import <SDWebImage/SDImageCache.h>
 #import "ProgressHUD.h"
+#import "ShareView.h"
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *headImageButton;
@@ -202,39 +203,11 @@
 #pragma mark ---------- 分享
 //分享
 - (void)share{
-    //微博
-    UIButton *weiboBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    weiboBtn.frame = CGRectMake(50, 40, 70, 70);
-    [weiboBtn setImage:[UIImage imageNamed:@"sina_normal"] forState:UIControlStateNormal];
-    [weiboBtn addTarget:self action:@selector(WeiBoAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.shareView addSubview:weiboBtn];
+    UIWindow *window = [[UIApplication sharedApplication ].delegate window];
     
-    
-    //朋友圈 friend
-    UIButton *friendBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    friendBtn.frame = CGRectMake(130, 40, 70, 70);
-    [friendBtn setImage:[UIImage imageNamed:@"wx_normal-1"] forState:UIControlStateNormal];
-    [friendBtn addTarget:self action:@selector(friendAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.shareView addSubview:friendBtn];
-    
-    //Circle
-    UIButton *circleBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    circleBtn.frame = CGRectMake(210, 40, 70, 70);
-    [circleBtn setImage:[UIImage imageNamed:@"py_normal"] forState:UIControlStateNormal];
-    [circleBtn addTarget:self action:@selector(circleAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.shareView addSubview:circleBtn];
-    
-    //remove
-    UIButton *removeBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    removeBtn.frame = CGRectMake(20, 100, kWidth - 40, 44);
-    [removeBtn setTitle:@"取消" forState:UIControlStateNormal];
-    [removeBtn addTarget:self action:@selector(removeAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.shareView addSubview:removeBtn];
-    
-    [UIView animateWithDuration:1.0 animations:^{
-        self.blackView.alpha = 0.8;
-        self.shareView.alpha = 1.0;
-    }];
+    ShareView *shareView = [[ShareView alloc] init];
+    [window addSubview:shareView];
+    return;
 }
 
 - (void)WeiBoAction{
