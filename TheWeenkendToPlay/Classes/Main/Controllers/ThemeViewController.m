@@ -26,7 +26,7 @@
     
     //在页面隐藏tabBar
     self.tabBarController.tabBar.hidden = YES;
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
 }
 #pragma mark --------- Cus
 - (void)getModel{

@@ -29,10 +29,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"热门专题";
-    self.view.backgroundColor = [UIColor greenColor];
     //在热门专题页面隐藏tabBar
     self.tabBarController.tabBar.hidden = YES;
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
     [self.view addSubview:self.tableView];
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerNib:[UINib nibWithNibName:@"HotActivityTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];

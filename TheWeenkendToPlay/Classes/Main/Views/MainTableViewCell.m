@@ -8,6 +8,7 @@
 
 #import "MainTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <CoreLocation/CoreLocation.h>
 @interface MainTableViewCell ()
 //活动图片
 @property (weak, nonatomic) IBOutlet UIImageView *activityImageView;
@@ -26,12 +27,23 @@
 @implementation MainTableViewCell
 
 - (void)setMainModel:(MainModel *)mainModel{
-    [self.activityImageView sd_setImageWithURL:[NSURL URLWithString:mainModel.image_big] placeholderImage:nil];
+    [self.activityImageView sd_setImageWithURL:[NSURL URLWithString:mainModel.image_big] placeholderImage:nil];//网上获取图片
     self.activityNameLable.text = mainModel.title;
 //    NSLog(@"mainModel.title = %@",mainModel.title);
     self.activityPriceLable.text = mainModel.price;
 //    NSLog(@"mainModel.price = %@",mainModel.price);
     
+    //计算两个经纬度之间的距离
+    double origlat = [[[NSUserDefaults standardUserDefaults] valueForKey:@"lat"] doubleValue];
+    double origlng = [[[NSUserDefaults standardUserDefaults] valueForKey:@"lng"] doubleValue];
+    CLLocation *origLoc = [[CLLocation alloc] initWithLatitude:origlat longitude:origlng];
+    CLLocation *disLoc = [[CLLocation alloc] initWithLatitude:mainModel.lat longitude:mainModel.lng];
+    double distance = [origLoc distanceFromLocation:disLoc] / 1000;
+    [self.activityDistanceBtn setTitle:[NSString stringWithFormat:@"%.2f",distance] forState:UIControlStateNormal];
+    
+    
+    
+
     if ([mainModel.type intValue]== 0) {
         self.activityPriceLable.hidden = YES;
         self.activityDistanceBtn.hidden  = YES;
@@ -43,8 +55,6 @@
         self.activityDistanceBtn.hidden  = NO;
         self.activityNameLable.hidden  = NO;
     }
-    
-    
 
 }
 

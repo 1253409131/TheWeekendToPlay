@@ -10,8 +10,17 @@
 #import "MainViewController.h"
 #import "DiscoverViewController.h"
 #import "MineViewController.h"
-
-@interface AppDelegate ()
+#import <BmobSDK/Bmob.h>
+//1.引入定位所需的框架
+#import <CoreLocation/CoreLocation.h>
+//5.引入定位代理，遵循
+@interface AppDelegate ()<CLLocationManagerDelegate>
+{
+    //2.创建定位定位所需的类的实例对象
+    CLLocationManager *_locationManager;
+    //创建地理编码对象1
+    CLGeocoder *_geocoder;
+}
 
 @end
 
@@ -22,9 +31,35 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    //3.初始化定位对象
+    _locationManager = [[CLLocationManager alloc] init];
+    //初始化地理编码对象
+    _geocoder = [[CLGeocoder alloc] init];
+    
+    if (![CLLocationManager locationServicesEnabled]) {
+        QJZLog(@"用户位置服务不可用!");
+    }
+    
+    //4.如果没有授权，则请求用户授权
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+        [_locationManager requestWhenInUseAuthorization];
+    }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse){
+        //4.1设置代理
+        _locationManager.delegate = self;
+        //4.2设置定位精度。精度越高越耗电
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        //4.3定位频率，每隔多少米定位一次
+        CLLocationDistance distance = 100.0;
+        _locationManager.distanceFilter = distance;
+        //4.4启动定位服务
+        [_locationManager startUpdatingLocation];
+    }
+    
+    
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
     [WXApi registerApp:kWeixinAppSecret];
+    [Bmob registerWithAppKey:kBmobAppkey];
     
     
     //UITableBarController
@@ -99,6 +134,39 @@
 }
 
 
+#pragma  mark -------- CLLocationManagerDelegeter
+/*!
+ 定位协议代理方法
+ @param manager  当前使用的定位对象
+ @param location 返回定位的数据，是一个数组对象，数组里面的元素是CLLocation类型
+ */
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    QJZLog(@"%@",locations);
+    //从数组中取出一个定位的信息
+    CLLocation *location = [locations firstObject];
+    //从CLLocation中获取坐标
+    //CLLocationCoordinate2D 坐标系，里边包含经度和纬度
+    CLLocationCoordinate2D coordinate = location.coordinate;
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setValue:[NSNumber numberWithDouble:coordinate.latitude] forKey:@"lat"];
+    [userDefault setValue:[NSNumber numberWithDouble:coordinate.longitude] forKey:@"lng"];
+    [userDefault synchronize];
+    QJZLog(@"%@%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"lat"],[[NSUserDefaults standardUserDefaults] valueForKey:@"lng"]);
+    
+    QJZLog(@"经度：%f 维度：%f 海拔：%f 航向：%f 行走速度：%f",coordinate.longitude,coordinate.latitude,location.altitude,location.course,location.speed);
+    
+    [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark *placeMark = [placemarks firstObject];
+        [[NSUserDefaults standardUserDefaults] setObject:placeMark.addressDictionary[@"City"] forKey:@"city"];
+        //保存
+        [userDefault synchronize];
+    }];
+    
+    //如果不需要使用定位服务的时候，及时关闭定位服务
+    QJZLog(@"%@ %@",_locationManager,manager);
+    [_locationManager stopUpdatingLocation];
+}
 
 
 

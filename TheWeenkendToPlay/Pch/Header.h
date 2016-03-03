@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 
 //首页数据接口
 //以后把所有的接口放在HWDefine中
-#define kMainDataList @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&cityid=1&lat=34.62172291944134&limit=30&lng=112.4149512442411&page=1"
+#define kMainDataList @"http://e.kumi.cn/app/v1.3/index.php?_s_=02a411494fa910f5177d82a6b0a63788&_t_=1451307342&channelid=appstore&limit=30&page=1"
 
 #define kActivityDetail @"http://e.kumi.cn/app/articleinfo.php?_s_=6055add057b829033bb586a3e00c5e9a&_t_=1452071715&channelid=appstore&cityid=1&lat=34.61356779156581&lng=112.4141403843618"
 
@@ -42,6 +42,8 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 
 //发现
 #define kDiscover @"http://e.kumi.cn/app/found.php?_s_=a82c7d49216aedb18c04a20fd9b0d5b2&_t_=1451310230&channelid=appstore&cityid=1&lat=34.62172291944134&lng=112.4149512442411"
+//选择城市
+#define kSelectCity @"http://e.kumi.cn/app/citylist.php"
 
 
 //新浪微博
@@ -54,6 +56,10 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 #define kWeixinAppKey @"wxcabf41c960be41b0"
 #define kWeixinAppSecret @"756fd73d2236220d18b0d94b1c98913a"
 
+
+
+//bmb
+#define kBmobAppkey @"1c43c46cc75291565e15c53a7a0504e6"
 
 
 

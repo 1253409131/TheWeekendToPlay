@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"精选活动";
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
     //在精选活动页面隐藏tabBar
     self.tabBarController.tabBar.hidden = YES;
     self.tableView.tableFooterView = [[UIView alloc] init];

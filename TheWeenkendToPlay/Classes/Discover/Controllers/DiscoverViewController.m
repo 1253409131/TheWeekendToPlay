@@ -31,6 +31,8 @@
     [self.view addSubview:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:@"DiscoverTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [self.tableView launchRefreshing];
+    self.navigationController.navigationBar.barTintColor = MainColor;
+    
     
     
     
@@ -97,7 +99,7 @@
 - (PullingRefreshTableView *)tableView{
     if (_tableView == nil) {
         self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight - 64 - 44) pullingDelegate:self];
-        self.tableView.backgroundColor = [UIColor cyanColor];
+
         //只有上边的下拉刷新
         [self.tableView setHeaderOnly:YES];
         self.tableView.dataSource = self;

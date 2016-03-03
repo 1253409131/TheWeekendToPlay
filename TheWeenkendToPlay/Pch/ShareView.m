@@ -108,7 +108,7 @@
     
     //remove
     UIButton *removeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    removeBtn.backgroundColor = [UIColor yellowColor];
+    removeBtn.backgroundColor = [UIColor redColor];
     removeBtn.frame = CGRectMake(30, 170, kWidth - 60, 44);
     [removeBtn setTitle:@"取消" forState:UIControlStateNormal];
     [removeBtn addTarget:self action:@selector(removeBtn) forControlEvents:UIControlEventTouchUpInside];

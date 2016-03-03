@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view addSubview:self.tableView];
-    self.navigationController.navigationBar.barTintColor = kColor;
+    self.navigationController.navigationBar.barTintColor = MainColor;
     
     
     self.titleArray = [[NSMutableArray alloc] initWithObjects:@"清除缓存", @"用户反馈", @"分享给好友", @"给我评分", @"当前版本1.0", nil];
@@ -142,7 +142,7 @@
 }
 - (void)setUpTableViewHeaderView{
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, 210)];
-    headView.backgroundColor = kColor;
+    headView.backgroundColor = MainColor;
     [headView addSubview:self.headImageButton];
     [headView addSubview:self.nikeNameLable];
     self.tableView.tableHeaderView = headView;
@@ -225,8 +225,11 @@
 }
 
 - (void)login{
-    
+    UIStoryboard *loginStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
+    UINavigationController *nav = [loginStoryBoard instantiateViewControllerWithIdentifier:@"LoginNav"];
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
+
 
 #pragma mark --------------- Lazy Loading
 - (UITableView *)tableView{
@@ -277,6 +280,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
+ 
+ 2499518053
 */
 
 @end

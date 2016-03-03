@@ -41,11 +41,10 @@
     _pageCount = 1;
     // Do any additional setup after loading the view.
     self.title = @"分类列表";
-    [self showBackButton];
+    [self showBackButtonWithImage:@"back"];
     self.tabBarController.tabBar.hidden = YES;
     
     [self.view addSubview:self.segmentedControl];
-    
     
     [self.tableView registerNib:[UINib nibWithNibName:@"JingXuanTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     
