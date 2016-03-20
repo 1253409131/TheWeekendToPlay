@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 
 
 //新浪微博
-#define kAppKey @"2499518053"
+#define kAppKey @"1789993794"
 #define kAppSecret @"4ae7dff98735d990396c59e8a86f668d"
 #define kRedirectURI @"https://api.weibo.com/oauth2/default.html"
 

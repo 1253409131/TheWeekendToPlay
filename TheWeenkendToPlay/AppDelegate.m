@@ -101,9 +101,8 @@
     mineNav.tabBarItem.selectedImage = [mineselectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     mineNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    
     tablBarVC.tabBar.barTintColor = [UIColor whiteColor];
-    
-    
     //添加被管理的试图控制器
     tablBarVC.viewControllers = @[mainNav,discoverNav,mineNav];
     self.window.rootViewController = tablBarVC;

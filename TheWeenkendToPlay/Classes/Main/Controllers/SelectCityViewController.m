@@ -34,9 +34,9 @@ static NSString *headIndentfier = @"headIndentfier";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"切换城市";
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.view.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:241/255.0 alpha:1.0];
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self showBackButtonWithImage:@"cancle"];
+    //导航栏颜色
     self.navigationController.navigationBar.barTintColor = MainColor;
     //请求网络数据
     [self loadData];
@@ -112,7 +112,7 @@ static NSString *headIndentfier = @"headIndentfier";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.citylistArray.count;
 }
-//返回3个分区
+//返回1个分区
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
@@ -200,19 +200,20 @@ static NSString *headIndentfier = @"headIndentfier";
         //设置item间距
         layout.minimumInteritemSpacing = 1;
         //section的间距
-        layout.sectionInset = UIEdgeInsetsMake(2, 0, 2, 0);
+        layout.sectionInset = UIEdgeInsetsMake(2, 5, 2, 5);
         
         //设置区头区尾大小
         layout.headerReferenceSize = CGSizeMake(kWidth, 160);
 //        layout.footerReferenceSize = CGSizeMake(kWidth, 50);
         //设置每个item的大小
-        layout.itemSize = CGSizeMake(120,70);
+        layout.itemSize = CGSizeMake(120,44);
         //通过一个layout布局来创建一个collectionView
         self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
-        self.collectionView.backgroundColor = [UIColor clearColor];
+        self.collectionView.backgroundColor = [UIColor whiteColor];
         //设置代理
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
+        
         //注册item类型
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"itemIdentifier"];
         

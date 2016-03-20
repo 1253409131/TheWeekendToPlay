@@ -104,7 +104,9 @@
         [self.tableView setHeaderOnly:YES];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        
         self.tableView.tableFooterView = [[UIView alloc] init];
+        
         self.tableView.rowHeight = 120;
         
     }

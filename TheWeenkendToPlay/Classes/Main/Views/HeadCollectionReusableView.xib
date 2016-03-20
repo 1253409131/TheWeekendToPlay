@@ -46,7 +46,7 @@
                 <outlet property="nowLocationCityLable" destination="bLM-D0-ncu" id="vyg-mG-pbW"/>
                 <outlet property="reLocationBtn" destination="sgD-iY-vFK" id="RMK-xX-q9e"/>
             </connections>
-            <point key="canvasLocation" x="422.5" y="408.5"/>
+            <point key="canvasLocation" x="58.5" y="3.5"/>
         </view>
     </objects>
 </document>

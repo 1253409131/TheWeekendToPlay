@@ -46,19 +46,21 @@
     [window addSubview:self.shareView];
     //微博
     UIButton *weiboBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    weiboBtn.frame = CGRectMake(50, 40, 70,70);
+    weiboBtn.frame = CGRectMake(kWidth*2/15, 40, 70,70);
     [weiboBtn setImage:[UIImage imageNamed:@"sina_normal"] forState:UIControlStateNormal];
+    weiboBtn.backgroundColor = [UIColor greenColor];
     
     [self.shareView addSubview:weiboBtn];
     
-    UILabel *weiboLable = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 70, 44)];
+    UILabel *weiboLable = [[UILabel alloc] initWithFrame:CGRectMake(kWidth*2/15, kWidth*4/15, 70, 44)];
     weiboLable.textAlignment = NSTextAlignmentCenter;
+    weiboLable.backgroundColor = [UIColor yellowColor];
     weiboLable.text = @"新浪微博";
     weiboLable.font = [UIFont systemFontOfSize:14];
     [self.shareView addSubview:weiboLable];
     
     UIButton *weibo = [UIButton buttonWithType:UIButtonTypeCustom];
-    weibo.frame = CGRectMake(50, 40, 70, 70+44);
+    weibo.frame = CGRectMake(kWidth*2/15, 40, 70, 70+44);
     
     [weibo addTarget:self action:@selector(weiBoAction) forControlEvents:UIControlEventTouchUpInside];
     [self.shareView addSubview:weibo];
@@ -72,7 +74,7 @@
     
     [self.shareView addSubview:friendBtn];
     
-    UILabel *friendLable = [[UILabel alloc] initWithFrame:CGRectMake(160, 100, 70, 44)];
+    UILabel *friendLable = [[UILabel alloc] initWithFrame:CGRectMake(160, kWidth*4/15, 70, 44)];
     friendLable.textAlignment = NSTextAlignmentCenter;
     friendLable.text = @"朋友圈";
     friendLable.font = [UIFont systemFontOfSize:14];
@@ -93,7 +95,7 @@
     [weixinBtn setImage:[UIImage imageNamed:@"wx_normal"] forState:UIControlStateNormal];
     
     [self.shareView addSubview:weixinBtn];
-    UILabel *weixinLable = [[UILabel alloc] initWithFrame:CGRectMake(270, 100, 70, 44)];
+    UILabel *weixinLable = [[UILabel alloc] initWithFrame:CGRectMake(270, kWidth*4/15, 70, 44)];
     weixinLable.textAlignment = NSTextAlignmentCenter;
     weixinLable.text = @"微信";
     weixinLable.font = [UIFont systemFontOfSize:14];
@@ -127,7 +129,7 @@
     
     
     
-    UILabel *fenxiangLable = [[UILabel alloc] initWithFrame:CGRectMake(100, 10, kWidth - 200, 44)];
+    UILabel *fenxiangLable = [[UILabel alloc] initWithFrame:CGRectMake(kWidth*4/15, 10, kWidth - 200, 44)];
     fenxiangLable.textAlignment = NSTextAlignmentCenter;
     fenxiangLable.text = @"分享给你的";
     fenxiangLable.font = [UIFont systemFontOfSize:18];
@@ -233,8 +235,6 @@
         [alert show];
         
     }
-    
-    
 }
 
 - (void)onResp:(BaseResp *)resp{

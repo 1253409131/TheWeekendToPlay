@@ -11,7 +11,9 @@
 #import "WXApi.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, WeiboSDKDelegate, WXApiDelegate>
+
 {
+    NSString* wbCurrentUserID;
     NSString *wbtoken;
 }
 

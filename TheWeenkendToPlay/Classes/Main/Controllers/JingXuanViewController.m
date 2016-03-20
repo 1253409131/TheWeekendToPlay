@@ -76,7 +76,7 @@
 //tableView开始刷新的时候调用
 //上拉
 - (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
-    self.refreshing = YES;
+    self.refreshing = NO;
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.0];
     _pageCount = 1;
 }
