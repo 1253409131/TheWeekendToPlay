@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,8 +15,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="388" height="219"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IPs-0D-eh0">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IPs-0D-eh0">
                         <rect key="frame" x="13" y="10" width="350" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="esk-lZ-viG"/>
+                            <constraint firstAttribute="width" constant="350" id="nhW-Bi-LZo"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFR-IP-0Mw">
                         <rect key="frame" x="325" y="182" width="33" height="29"/>
@@ -27,6 +32,17 @@
                         <rect key="frame" x="302" y="187" width="20" height="19"/>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="IPs-0D-eh0" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="1k6-JO-xTo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IPs-0D-eh0" secondAttribute="trailing" constant="17" id="7Uv-J3-tne"/>
+                    <constraint firstItem="IPs-0D-eh0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Cfm-0F-qMQ"/>
+                    <constraint firstItem="IPs-0D-eh0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="taM-Ul-u80"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="1k6-JO-xTo"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dianZanLable" destination="bFR-IP-0Mw" id="r0j-sJ-Kag"/>

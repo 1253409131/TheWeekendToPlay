@@ -8,7 +8,8 @@
 
 #import "LoginViewController.h"
 #import <BmobSDK/Bmob.h>
-
+#import "ProgressHUD.h"
+#import "MainViewController.h"
 @interface LoginViewController ()<BmobEventDelegate>
 
 @end
@@ -32,12 +33,26 @@
 - (IBAction)loginAction:(id)sender {
     [BmobUser loginWithUsernameInBackground:self.userNameText.text password:self.passWordText.text block:^(BmobUser *user, NSError *error) {
         if (user) {
-            QJZLog(@"%@",user);
+            QJZLog(@"user = %@",user);
+            [ProgressHUD showSuccess:@"登陆成功"];
+        }else{
+            [ProgressHUD showError:@"登录失败"];
         }
     }];
-    
+//    MainViewController *mainVC = [[MainViewController alloc] init];
+//    [self.navigationController pushViewController:mainVC animated:YES];
 }
 
+//点击右下角回收键盘
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+//点击页面空白处回收键盘
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+    
+}
 
 
 

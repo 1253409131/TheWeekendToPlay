@@ -10,6 +10,16 @@
 #import <BmobSDK/BmobUser.h>
 #import "ProgressHUD.h"
 @interface RegisterViewController ()<UITextFieldDelegate>
+//用户名
+@property (weak, nonatomic) IBOutlet UITextField *nameTF;
+//邮箱
+@property (weak, nonatomic) IBOutlet UITextField *emailTF;
+//密码
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+
+
+
+
 
 @end
 
@@ -21,7 +31,7 @@
     [self showBackButtonWithImage:@"back"];
     self.title = @"注册";
     //密码密文显示
-    self.passWordText.secureTextEntry = YES;
+//    self.passWordText.secureTextEntry = YES;
     self.passWordAgainText.secureTextEntry = YES;
     //默认Switch关闭，密码不显示
 //    self.passWordSwitch.on = NO;
@@ -43,10 +53,10 @@
 - (IBAction)passWordSwitchAction:(id)sender {
     UISwitch *passWordSwitch = sender;
     if (passWordSwitch.on) {
-        self.passWordText.secureTextEntry = NO;
+//        self.passWordText.secureTextEntry = NO;
         self.passWordAgainText.secureTextEntry = NO;
     }else{
-    self.passWordText.secureTextEntry = YES;
+//    self.passWordText.secureTextEntry = YES;
     self.passWordAgainText.secureTextEntry = YES;
     }
 }
@@ -57,12 +67,12 @@
     [ProgressHUD show:@"正在为您注册"];
     BmobUser *bUser = [[BmobUser alloc] init];
     
-    [bUser setUsername:self.userNameText.text];
-    [bUser setPassword:self.passWordText.text];
+    [bUser setUsername:self.nameTF.text];
+    [bUser setEmail:self.emailTF.text];
+    [bUser setPassword:self.passwordTF.text];
     [bUser signUpInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
             [ProgressHUD showSuccess:@"注册成功"];
-            QJZLog(@"注册成功");
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"恭喜你" message:@"注册成功" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -74,11 +84,7 @@
             [alert addAction:action];
             [alert addAction:candel];
             [self presentViewController:alert animated:YES completion:nil];
-            
-            
-            
         }else{
-            
             [ProgressHUD showError:@"注册失败"];
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"很遗憾" message:@"注册失败" preferredStyle:UIAlertControllerStyleAlert];
@@ -91,8 +97,6 @@
             [alert addAction:action];
             [alert addAction:candel];
             [self presentViewController:alert animated:YES completion:nil];
-            
-            QJZLog(@"注册失败");
         }
     }];
     

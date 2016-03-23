@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,8 +15,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AYQ-pq-Itn">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYQ-pq-Itn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="170" id="eHW-mM-nCV"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DIY精油手工皂 亲子体验价25元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLj-yu-Bgq">
                         <rect key="frame" x="0.0" y="137" width="375" height="33"/>
@@ -37,6 +41,11 @@
                         </state>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="AYQ-pq-Itn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="3tE-4Z-uFT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="AYQ-pq-Itn" secondAttribute="trailing" constant="-8" id="8nW-tJ-3Uf"/>
+                    <constraint firstItem="AYQ-pq-Itn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="kr9-eZ-Ka5"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="activityDistanceBtn" destination="nOc-zF-47n" id="foS-ca-MK1"/>

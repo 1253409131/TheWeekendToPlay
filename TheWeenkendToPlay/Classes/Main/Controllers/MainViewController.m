@@ -183,10 +183,10 @@
 
 #pragma mark --------- configTableViewHeaderView
 - (void)configTableViewHeaderView{
-    UIView *tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 343)];
+    UIView *tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, 343)];
     
     //添加轮播图
-    self.carouselView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 186)];
+    self.carouselView = [[UIScrollView alloc] initWithFrame:CGRectMake(4, 0, kWidth, 186)];
     self.carouselView.delegate = self;
     //整屏滑动
     self.carouselView.pagingEnabled = YES;
@@ -241,7 +241,7 @@
 - (UIButton *)activityBtn{
     if (_activityBtn == nil) {
         self.activityBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.activityBtn.frame = CGRectMake(0, 186 +[UIScreen mainScreen].bounds.size.width / 4, [UIScreen mainScreen].bounds.size.width / 2, 343 - 186 - [UIScreen mainScreen].bounds.size.width / 4);
+        self.activityBtn.frame = CGRectMake(0, 186 +kWidth / 4, kWidth / 2, 157 - kWidth / 4);
         
         [self.activityBtn setImage:[UIImage imageNamed:@"home_huodong"] forState:UIControlStateNormal];
         self.activityBtn.tag = 110;
@@ -255,7 +255,7 @@
 - (UIButton *)themeBtn{
     if (_themeBtn == nil) {
         self.themeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.themeBtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width / 2, 186 +[UIScreen mainScreen].bounds.size.width / 4, [UIScreen mainScreen].bounds.size.width / 2, 343 - 186 - [UIScreen mainScreen].bounds.size.width / 4);
+        self.themeBtn.frame = CGRectMake(kWidth / 2, 186 +kWidth / 4, kWidth / 2, 157 - kWidth / 4);
         
         [self.themeBtn setImage:[UIImage imageNamed:@"home_zhuanti"] forState:UIControlStateNormal];
         self.themeBtn.tag = 111;

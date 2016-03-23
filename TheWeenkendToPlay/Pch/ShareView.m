@@ -46,22 +46,19 @@
     [window addSubview:self.shareView];
     //微博
     UIButton *weiboBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    weiboBtn.frame = CGRectMake(kWidth*2/15, 40, 70,70);
+    weiboBtn.frame = CGRectMake(kWidth/7, 44, kWidth/7,kWidth/7);
     [weiboBtn setImage:[UIImage imageNamed:@"sina_normal"] forState:UIControlStateNormal];
-    weiboBtn.backgroundColor = [UIColor greenColor];
     
     [self.shareView addSubview:weiboBtn];
     
-    UILabel *weiboLable = [[UILabel alloc] initWithFrame:CGRectMake(kWidth*2/15, kWidth*4/15, 70, 44)];
+    UILabel *weiboLable = [[UILabel alloc] initWithFrame:CGRectMake(kWidth/7-5, kWidth/7+44, kWidth/7+10, 44)];
     weiboLable.textAlignment = NSTextAlignmentCenter;
-    weiboLable.backgroundColor = [UIColor yellowColor];
     weiboLable.text = @"新浪微博";
-    weiboLable.font = [UIFont systemFontOfSize:14];
+    weiboLable.font = [UIFont systemFontOfSize:13.0f];
     [self.shareView addSubview:weiboLable];
     
     UIButton *weibo = [UIButton buttonWithType:UIButtonTypeCustom];
-    weibo.frame = CGRectMake(kWidth*2/15, 40, 70, 70+44);
-    
+    weibo.frame = CGRectMake(kWidth/7, 44, kWidth/7, kWidth/7+44);
     [weibo addTarget:self action:@selector(weiBoAction) forControlEvents:UIControlEventTouchUpInside];
     [self.shareView addSubview:weibo];
     
@@ -69,40 +66,38 @@
     
     //朋友圈
     UIButton *friendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    friendBtn.frame = CGRectMake(160, 40, 70, 70);
+    friendBtn.frame = CGRectMake(kWidth/7*3, 44, kWidth/7, kWidth/7);
     [friendBtn setImage:[UIImage imageNamed:@"py_normal"] forState:UIControlStateNormal];
     
     [self.shareView addSubview:friendBtn];
     
-    UILabel *friendLable = [[UILabel alloc] initWithFrame:CGRectMake(160, kWidth*4/15, 70, 44)];
+    UILabel *friendLable = [[UILabel alloc] initWithFrame:CGRectMake(kWidth/7*3, kWidth/7+44, kWidth/7, 44)];
     friendLable.textAlignment = NSTextAlignmentCenter;
     friendLable.text = @"朋友圈";
     friendLable.font = [UIFont systemFontOfSize:14];
     [self.shareView addSubview:friendLable];
     
     UIButton *friend = [UIButton buttonWithType:UIButtonTypeCustom];
-    friend.frame = CGRectMake(160, 40, 70, 70+44);
+    friend.frame = CGRectMake(kWidth/7*3, 44, kWidth/7, kWidth/7+44);
     [friend addTarget:self action:@selector(friendAction) forControlEvents:UIControlEventTouchUpInside];
     [self.shareView addSubview:friend];
     
     
     
-    
-    
     //微信
     UIButton *weixinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    weixinBtn.frame = CGRectMake(270, 40, 70, 70);
+    weixinBtn.frame = CGRectMake(kWidth/7*5, 44, kWidth/7, kWidth/7);
     [weixinBtn setImage:[UIImage imageNamed:@"wx_normal"] forState:UIControlStateNormal];
     
     [self.shareView addSubview:weixinBtn];
-    UILabel *weixinLable = [[UILabel alloc] initWithFrame:CGRectMake(270, kWidth*4/15, 70, 44)];
+    UILabel *weixinLable = [[UILabel alloc] initWithFrame:CGRectMake(kWidth/7*5, kWidth/7+44, kWidth/7, 44)];
     weixinLable.textAlignment = NSTextAlignmentCenter;
     weixinLable.text = @"微信";
     weixinLable.font = [UIFont systemFontOfSize:14];
     [self.shareView addSubview:weixinLable];
     
     UIButton *weixin = [UIButton buttonWithType:UIButtonTypeCustom];
-    weixin.frame = CGRectMake(270, 40, 70, 70+44);
+    weixin.frame = CGRectMake(kWidth/7*5, 44, kWidth/7, kWidth/7+44);
     [weixin addTarget:self action:@selector(weixinAction) forControlEvents:UIControlEventTouchUpInside];
     [self.shareView addSubview:weixin];
     
@@ -110,8 +105,8 @@
     
     //remove
     UIButton *removeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    removeBtn.backgroundColor = [UIColor redColor];
-    removeBtn.frame = CGRectMake(30, 170, kWidth - 60, 44);
+    removeBtn.backgroundColor = MainColor;
+    removeBtn.frame = CGRectMake(kWidth/14, kWidth/5*2, kWidth/7*6, 44);
     [removeBtn setTitle:@"取消" forState:UIControlStateNormal];
     [removeBtn addTarget:self action:@selector(removeBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.shareView addSubview:removeBtn];
@@ -128,8 +123,7 @@
     
     
     
-    
-    UILabel *fenxiangLable = [[UILabel alloc] initWithFrame:CGRectMake(kWidth*4/15, 10, kWidth - 200, 44)];
+    UILabel *fenxiangLable = [[UILabel alloc] initWithFrame:CGRectMake(kWidth/4, 0, kWidth/2, 44)];
     fenxiangLable.textAlignment = NSTextAlignmentCenter;
     fenxiangLable.text = @"分享给你的";
     fenxiangLable.font = [UIFont systemFontOfSize:18];
@@ -137,6 +131,9 @@
     
     
 }
+
+    
+
 - (void)removeBtn{
     [UIView animateWithDuration:0.5 animations:^{
         self.blackView.alpha = 0.0;

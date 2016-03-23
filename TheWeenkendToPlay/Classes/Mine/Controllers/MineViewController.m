@@ -245,7 +245,7 @@
     if (_headImageButton == nil) {
         self.headImageButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.headImageButton.frame = CGRectMake(20, 40, 130, 130);
-        [self.headImageButton setTitle:@"登陆/注册" forState:UIControlStateNormal];
+        [self.headImageButton setTitle:@"登录/注册" forState:UIControlStateNormal];
         [self.headImageButton setBackgroundColor:[UIColor whiteColor]];
         [self.headImageButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.headImageButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
@@ -259,7 +259,8 @@
     if (_nikeNameLable == nil) {
         self.nikeNameLable = [[UILabel alloc] initWithFrame:CGRectMake(180, 90, kWidth - 200, 60)];
         self.nikeNameLable.numberOfLines = 0;
-        self.nikeNameLable.text = @"欢迎来到The weekend to happy";
+        self.nikeNameLable.text = @"欢迎来到TheWeekendToHappy";
+        self.nikeNameLable.font = [UIFont systemFontOfSize:13.0f];
         self.nikeNameLable.textColor = [UIColor whiteColor];
     }
     return _nikeNameLable;
