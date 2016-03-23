@@ -27,6 +27,9 @@
 @implementation AppDelegate
 
 
+@dynamic wbtoken;
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -58,7 +61,8 @@
     
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
-    [WXApi registerApp:kWeixinAppSecret];
+    
+    [WXApi registerApp:kWeixinAppID];
     [Bmob registerWithAppKey:kBmobAppkey];
     
     
@@ -116,8 +120,8 @@
 
 #pragma mark ------- shareWeibo
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [WeiboSDK handleOpenURL:url delegate:self];
-    return  [WXApi handleOpenURL:url delegate:self];
+    return [WeiboSDK handleOpenURL:url delegate:self] && [WXApi handleOpenURL:url delegate:self];
+
     
 }
 
@@ -125,9 +129,7 @@
     
     BOOL isSuc = [WXApi handleOpenURL:url delegate:self];
     NSLog(@"url %@ isSuc %d",url,isSuc == YES ? 1 : 0);
-    return  isSuc;
-    
-    return [WeiboSDK handleOpenURL:url delegate:self];
+    return  isSuc && [WeiboSDK handleOpenURL:url delegate:self];
     
     
 }
@@ -169,7 +171,20 @@
 
 
 
+#pragma mark --------- WeiboSDKDelegate
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    
+}
 
+/**
+ 收到一个来自微博客户端程序的响应
+ 
+ 收到微博的响应后，第三方应用可以通过响应类型、响应的数据和 WBBaseResponse.userInfo 中的数据完成自己的功能
+ @param response 具体的响应对象
+ */
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

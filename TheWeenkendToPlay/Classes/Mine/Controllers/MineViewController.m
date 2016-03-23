@@ -31,7 +31,7 @@
     self.navigationController.navigationBar.barTintColor = MainColor;
     
     
-    self.titleArray = [[NSMutableArray alloc] initWithObjects:@"清除缓存", @"用户反馈", @"分享给好友", @"给我评分", @"当前版本1.0", nil];
+    self.titleArray = [[NSMutableArray alloc] initWithObjects:@"清除缓存", @"用户反馈", @"分享给好友", @"给我评分", nil];
     self.imageArray = @[@"btn_select", @"home", @"qq_normal", @"pc_menu_collect_normal_ic", @"btn_share_selected"];
     [self setUpTableViewHeaderView];
     
@@ -116,14 +116,6 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         }
             break;
-        case 4:
-        {
-            //检测当前版本
-            [ProgressHUD show:@"正在为您检测中..."];
-            [self performSelector:@selector(checkAppVersion) withObject:nil afterDelay:2.0];
-        }
-            break;
-            
         default:
             break;
     }
@@ -197,9 +189,7 @@
     }
 }
 
-- (void)checkAppVersion{
-    [ProgressHUD showSuccess:@"恭喜您！目前已是最高版本"];
-}
+
 #pragma mark ---------- 分享
 //分享
 - (void)share{

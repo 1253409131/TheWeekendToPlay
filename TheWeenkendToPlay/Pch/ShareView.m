@@ -249,6 +249,23 @@
 }
 
 
+#pragma  mark ------- WeiboSDKDelegate
+
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    
+}
+
+/**
+ 收到一个来自微博客户端程序的响应
+ 
+ 收到微博的响应后，第三方应用可以通过响应类型、响应的数据和 WBBaseResponse.userInfo 中的数据完成自己的功能
+ @param response 具体的响应对象
+ */
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

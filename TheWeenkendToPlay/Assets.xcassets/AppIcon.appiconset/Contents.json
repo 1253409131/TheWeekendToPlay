@@ -37,9 +37,8 @@
       "scale" : "1x"
     },
     {
-      "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "Icon-72@2x.png",
+      "size" : "57x57",
       "scale" : "2x"
     },
     {
@@ -135,7 +134,6 @@
     {
       "size" : "29x29",
       "idiom" : "watch",
-      "filename" : "Icon-Small-2.png",
       "role" : "companionSettings",
       "scale" : "2x"
     },

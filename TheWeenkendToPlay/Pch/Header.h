@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger, ClassifyListType) {
 
 
 //微信
-#define kWeixinAppKey @"wxcabf41c960be41b0"
+#define kWeixinAppID @"wxcabf41c960be41b0"
 #define kWeixinAppSecret @"756fd73d2236220d18b0d94b1c98913a"
 
 
