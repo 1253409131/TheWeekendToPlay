@@ -44,6 +44,7 @@
     self.shareView = [[UIView alloc] initWithFrame:CGRectMake(0,kHeight -250, kWidth, 250)];
     self.shareView.backgroundColor = [UIColor whiteColor];
     [window addSubview:self.shareView];
+    
     //微博
     UIButton *weiboBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     weiboBtn.frame = CGRectMake(kWidth/7, 44, kWidth/7,kWidth/7);
@@ -154,11 +155,14 @@
     authRequest1.scope = @"all";
     
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest1 access_token:myDelegate.wbtoken];
+    
+    
     request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
                          @"Other_Info_1": [NSNumber numberWithInt:123],
                          @"Other_Info_2": @[@"obj1", @"obj2"],
                          @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
     [WeiboSDK sendRequest:request];
+    
     [self.blackView removeFromSuperview];
     [self.shareView removeFromSuperview];
     

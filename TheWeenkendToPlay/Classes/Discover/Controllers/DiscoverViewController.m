@@ -89,7 +89,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self viewDidAppear:YES];
     self.tabBarController.tabBar.hidden = NO;
-    
 }
 
 #pragma mark --------  Custom Method

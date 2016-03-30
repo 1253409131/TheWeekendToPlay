@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "ProgressHUD.h"
-#import "MainViewController.h"
+
 @interface LoginViewController ()<BmobEventDelegate>
 
 @end
@@ -35,12 +35,14 @@
         if (user) {
             QJZLog(@"user = %@",user);
             [ProgressHUD showSuccess:@"登陆成功"];
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            
         }else{
             [ProgressHUD showError:@"登录失败"];
         }
+        
     }];
-//    MainViewController *mainVC = [[MainViewController alloc] init];
-//    [self.navigationController pushViewController:mainVC animated:YES];
+
 }
 
 //点击右下角回收键盘

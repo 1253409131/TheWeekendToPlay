@@ -25,9 +25,10 @@
 @end
 
 @implementation AppDelegate
+@synthesize wbtoken;
 
 
-@dynamic wbtoken;
+//@dynamic wbtoken;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

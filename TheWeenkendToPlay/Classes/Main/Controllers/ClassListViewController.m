@@ -129,7 +129,7 @@
     [ProgressHUD show:@"拼命加载中..."];
     
     //typeid = 6  //演出剧目
-    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClass, _pageCount, @(6)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClass, (long)_pageCount, @(6)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -175,7 +175,7 @@
     [ProgressHUD show:@"拼命加载中..."];
     
     //typeid = 23  // 景点场馆
-    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClass, _pageCount, @(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClass, (long)_pageCount, @(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -220,7 +220,7 @@
     [ProgressHUD show:@"拼命加载中..."];
     
     //typeid = 22  // 学习益智
-    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClass, _pageCount, @(22)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClass, (long)_pageCount, @(22)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -265,7 +265,7 @@
     [ProgressHUD show:@"拼命加载中..."];
     
     //typeid = 21  // 亲子旅游
-    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClass, _pageCount, @(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClass, (long)_pageCount, @(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

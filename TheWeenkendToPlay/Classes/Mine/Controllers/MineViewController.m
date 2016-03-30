@@ -44,7 +44,7 @@
     //每次当页面将要出现的时候重新计算图片缓存
     SDImageCache *cache = [SDImageCache sharedImageCache];
     NSInteger cacheSize = [cache getSize];
-    QJZLog(@"%ld",cacheSize);
+    QJZLog(@"%ld",(long)cacheSize);
     NSString *cscheStr = [NSString stringWithFormat:@"缓存大小（%.02fM）",(float)cacheSize/1024/1024];
     [self.titleArray replaceObjectAtIndex:0 withObject:cscheStr];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
